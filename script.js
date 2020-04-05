@@ -2,6 +2,7 @@
 var generateBtn = document.querySelector("#generate");
 
 function generateIt() {
+  charLength = "";
   status = "";
   userPassword = "";
   totalChar = "";
@@ -15,45 +16,34 @@ function generateIt() {
 
   // password size input
 
-  length = prompt("How many characters should the password be?");
+  charLength = prompt("How many characters should the password be? (Password size must be between 8 - 128 characters)");
 
   // while loop to get passwaord size between 8 - 128 chars
   // if user choice is wrong  2x;  Will auto set password size closest to user choice 
 
-  while ((length <= 7) || (length > 128)) {
-    length = prompt("Password Size must be between 8 - 128. You selected " + length + ". Try again");
+  while ((charLength <= 7) || (charLength > 128)) {
+    charlength = prompt("Password Size must be between 8 - 128. You selected " + charLength + ". Try again");
     passrequire = true;
     break;
 
-    if (length < 8) {
-      length = 8;
-      passrequire = false;
-      alert("Password size requirements not met. Password size was set to the minimum of 8 for you");
-    }
-
-    else {
-      (length > 128)
-      length = 128;
-      passrequire = false;
-      totalChar = alert("Password size requirements not met. Password size was set to the maximum of 128 for you");
-    }
   }
 
 
+  if (charLength < 8) {
+    charLength = 8;
+    passrequire = false;
+    alert("Password size requirements not met. Password size was set to the minimum of 8 for you");
 
-  // if (length < 8) {
-  //   length = 8;
-  //   passrequire = false;
-  //   alert("Password size requirements not met. Password size was set to the minimum of 8 for you");
-  // }
+  }
 
-  // if (length > 128) {
-  //   length = 128;
-  //   passrequire = false;
-  //   totalChar = alert("Password size requirements not met. Password size was set to the maximum of 128 for you");
-  // }
+  if (charLength >= 129) {
+    charLength = 128;
+    passrequire = false;
+    alert("Password size requirements not met. Password size was set to the maximum of 128 for you");
 
-  // function to combine char requiremnets to one variable 
+  }
+
+  // function to combine char requiremnets to one variable
 
   function charType() {
 
@@ -87,10 +77,11 @@ function generateIt() {
     charType();
   }
 
+
   // generate the password
 
   function makeItNow() {
-    for (let i = 0; i < length; i++) {
+    for (let i = 0; i < charLength; i++) {
       userPassword += totalChar.charAt(
         Math.floor(Math.random() * totalChar.length)
       );
@@ -101,7 +92,7 @@ function generateIt() {
   //Start Debug
 
   console.log("Password size requirements met: " + passrequire + " -  (If false, size was set automatically to meet size requirements)");
-  console.log("Password length: " + length);
+  console.log("Password length: " + charLength);
   console.log("Include lower: " + lower);
   console.log("Include upper: " + upper);
   console.log("Include number:" + number);
