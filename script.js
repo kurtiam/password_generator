@@ -25,9 +25,7 @@ function generateIt() {
     charlength = prompt("Password Size must be between 8 - 128. You selected " + charLength + ". Try again");
     passrequire = true;
     break;
-
   }
-
 
   if (charLength < 8) {
     charLength = 8;
@@ -66,7 +64,6 @@ function generateIt() {
 
   //while loop to ensure charType requirments are met 
 
-
   while (totalChar.length === 0) {
 
     alert("Password requirements.  Please select at least ONE character type of uppercase, lowercase, nubmer, or special character selection. The more types chosen the stronger the password");
@@ -76,7 +73,6 @@ function generateIt() {
     number = confirm("Include numbers in password?");
     charType();
   }
-
 
   // generate the password
 
