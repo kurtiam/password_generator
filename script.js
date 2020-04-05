@@ -66,9 +66,9 @@ function generateIt() {
 
   while (totalChar.length === 0) {
 
-    alert("Password requirements.  Please select at least ONE character type of uppercase, lowercase, nubmer, or special character selection. The more types chosen the stronger the password");
-    lower = confirm("Include lowercase in password?");
-    upper = confirm("Include uppercase in password?");
+    alert("When asked please select at least ONE or more character types of uppercase letters, lowercase letters, nubmers, or special characters. The more types chosen the stronger the password");
+    lower = confirm("Include lowercase letters in password?");
+    upper = confirm("Include uppercase letters in password?");
     special = confirm("Include special characters in password?");
     number = confirm("Include numbers in password?");
     charType();
