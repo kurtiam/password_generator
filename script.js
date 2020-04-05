@@ -24,18 +24,34 @@ function generateIt() {
     length = prompt("Password Size must be between 8 - 128. You selected " + length + ". Try again");
     passrequire = true;
     break;
+
+    if (length < 8) {
+      length = 8;
+      passrequire = false;
+      alert("Password size requirements not met. Password size was set to the minimum of 8 for you");
+    }
+
+    else {
+      (length > 128)
+      length = 128;
+      passrequire = false;
+      totalChar = alert("Password size requirements not met. Password size was set to the maximum of 128 for you");
+    }
   }
 
-  if (length < 8) {
-    length = 8;
-    passrequire = false;
-    alert("Password size requirements not met. Password size was set to the minimum of 8 for you");
-  }
-  if (length > 128) {
-    length = 128;
-    passrequire = false;
-    totalChar = alert("Password size requirements not met. Password size was set to the maximum of 128 for you");
-  }
+
+
+  // if (length < 8) {
+  //   length = 8;
+  //   passrequire = false;
+  //   alert("Password size requirements not met. Password size was set to the minimum of 8 for you");
+  // }
+
+  // if (length > 128) {
+  //   length = 128;
+  //   passrequire = false;
+  //   totalChar = alert("Password size requirements not met. Password size was set to the maximum of 128 for you");
+  // }
 
   // function to combine char requiremnets to one variable 
 
@@ -59,6 +75,7 @@ function generateIt() {
   }
 
   //while loop to ensure charType requirments are met 
+
 
   while (totalChar.length === 0) {
 
