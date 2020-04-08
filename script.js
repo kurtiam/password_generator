@@ -14,13 +14,15 @@ function generateIt() {
 
   // password size input
 
-  var charLength = prompt("How many characters should the password be? (Password size must be between 8 - 128 characters)");
+  charLength = parseFloat(prompt("How many characters should the password be? (Password size must be between 8 - 128 characters)"));
 
-  // while loop to get passwaord size between 8 - 128 chars
+
+  // while loop to get passwaord size between 8 - 128 chars and also a numeric value
   // if user choice is wrong  2x;  Will auto set password size closest to user choice 
 
-  while ((charLength < 8) || (charLength > 128)) {
-    charLength = prompt("Password Size must be between 8 - 128.  You selected " + charLength + ".  Try again");
+  while ((charLength < 8) || (charLength > 128) || (isNaN(charLength))) {
+    charLength = prompt("Password Size must be a Numeric value between 8 - 128.  Try again");
+
     passRequire = true;
     break;
   }
@@ -36,6 +38,13 @@ function generateIt() {
     charLength = 128;
     passRequire = false;
     alert("Password size requirements not met. Password size was set to the maximum of 128.");
+
+  }
+
+  if (isNaN(charLength)) {
+    charLength = 12;
+    passRequire = false;
+    alert(" A non-Numeric value was selected. Password size was set to a defult of 12.");
 
   }
 
@@ -91,11 +100,10 @@ function generateIt() {
   console.log("Include upper: " + upper);
   console.log("Include number:" + number);
   console.log("Include special: " + special);
-  console.log("what is this: " + password);
-  // console.log("Available lower: " + charArr.lower);
-  // console.log("Available upper  " + charArr.upper);
-  // console.log("Available numbers  " + charArr.number);
-  // console.log("Available special: " + charArr.special);
+  console.log("Available lower: " + charArr.lower);
+  console.log("Available upper  " + charArr.upper);
+  console.log("Available numbers  " + charArr.number);
+  console.log("Available special: " + charArr.special);
   console.log("Password made from: " + totalChar);
   console.log("Password is: " + userPassword);
   console.log("-------------------------------");
