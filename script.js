@@ -2,12 +2,10 @@
 var generateBtn = document.querySelector("#generate");
 
 function generateIt() {
-
-  status = "";
   userPassword = "";
-  totalChar = "";
-  passrequire = "";
-  charArr = {
+  var totalChar = "";
+  var passRequire = "";
+  var charArr = {
     "lower": "abcdefghijklmnopqrstuvwxyz",
     "upper": "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
     "number": "0123456789",
@@ -16,27 +14,27 @@ function generateIt() {
 
   // password size input
 
-  charLength = prompt("How many characters should the password be? (Password size must be between 8 - 128 characters)");
+  var charLength = prompt("How many characters should the password be? (Password size must be between 8 - 128 characters)");
 
   // while loop to get passwaord size between 8 - 128 chars
   // if user choice is wrong  2x;  Will auto set password size closest to user choice 
 
   while ((charLength < 8) || (charLength > 128)) {
     charLength = prompt("Password Size must be between 8 - 128.  You selected " + charLength + ".  Try again");
-    passrequire = true;
+    passRequire = true;
     break;
   }
 
   if (charLength < 8) {
     charLength = 8;
-    passrequire = false;
+    passRequire = false;
     alert("Password size requirements not met. Password size was set to the minimum of 8.");
 
   }
 
   if (charLength > 128) {
     charLength = 128;
-    passrequire = false;
+    passRequire = false;
     alert("Password size requirements not met. Password size was set to the maximum of 128.");
 
   }
@@ -67,10 +65,10 @@ function generateIt() {
   while (totalChar.length === 0) {
 
     alert("When asked please select at least ONE or more character types of uppercase letters, lowercase letters, nubmers, or special characters. The more types chosen the stronger the password");
-    lower = confirm("Include lowercase letters in password?");
-    upper = confirm("Include uppercase letters in password?");
-    special = confirm("Include special characters in password?");
-    number = confirm("Include numbers in password?");
+    var lower = confirm("Include lowercase letters in password?");
+    var upper = confirm("Include uppercase letters in password?");
+    var special = confirm("Include special characters in password?");
+    var number = confirm("Include numbers in password?");
     charType();
   }
 
@@ -87,12 +85,13 @@ function generateIt() {
 
   //Start Debug
 
-  console.log("Password size requirements met: " + passrequire + " -  (If false, size was set automatically to meet size requirements)");
+  console.log("Password size requirements met: " + passRequire + " -  (If false, size was set automatically to meet size requirements)");
   console.log("Password length: " + charLength);
   console.log("Include lower: " + lower);
   console.log("Include upper: " + upper);
   console.log("Include number:" + number);
   console.log("Include special: " + special);
+  console.log("what is this: " + password);
   // console.log("Available lower: " + charArr.lower);
   // console.log("Available upper  " + charArr.upper);
   // console.log("Available numbers  " + charArr.number);
@@ -106,8 +105,8 @@ function generateIt() {
 
 // Write password to the #password input
 function writePassword() {
-  var password = generateIt();
-  var passwordText = document.querySelector("#password");
+  password = generateIt();
+  passwordText = document.querySelector("#password");
 
   passwordText.value = userPassword;
 
